@@ -1,13 +1,13 @@
 {
-  "name": "karma-demo",
-  "version": "1.0.0",
-  "description": "",
+  "name": "k-test-tool",
+  "version": "1.0.1",
+  "description": "kang's ui test tool",
   "main": "index.js",
   "scripts": {
     "test": "karma start ./karma.conf.js",
     "k": "node test.js node"
   },
-  "author": "",
+  "author": "chenkang084@163.com",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.11.0",
@@ -26,5 +26,16 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-stage-0": "^6.22.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenkang084/k-test-tool.git"
+  },
+  "keywords": [
+    "karma"
+  ],
+  "bugs": {
+    "url": "https://github.com/chenkang084/k-test-tool/issues"
+  },
+  "homepage": "https://github.com/chenkang084/k-test-tool#readme"
 }
