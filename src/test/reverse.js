@@ -4,10 +4,3 @@ module.exports = function reverse(name) {
     .reverse()
     .join("");
 };
-
-// function reverse(name) {
-//   return name
-//     .split("")
-//     .reverse()
-//     .join("");
-// };
