@@ -5,20 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start ./karma.conf.js",
-    "k": "node test.js node"
+    "dll": "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
   },
   "author": "chenkang084@163.com",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.11.0",
-    "es6-shim": "^0.35.3",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "~1.0.1",
-    "phantomjs-prebuilt": "^2.1.4",
-    "webpack": "^3.8.1"
+    "phantomjs-prebuilt": "^2.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -27,11 +25,16 @@
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.2.0",
     "expect": "^1.13.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.5",
+    "lodash": "^4.17.4",
     "rc-notification": "^3.0.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1"
   },
   "repository": {
     "type": "git",
