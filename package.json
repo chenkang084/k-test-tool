@@ -19,6 +19,8 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "~1.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.5",
     "phantomjs-prebuilt": "^2.1.4"
   },
   "devDependencies": {
@@ -30,10 +32,11 @@
     "babel-preset-stage-0": "^6.22.0",
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.2.0",
+    "cross-spawn": "^5.1.0",
     "expect": "^1.13.0",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.5",
+
     "lodash": "^4.17.4",
+    "object-assign": "^4.1.1",
     "rc-notification": "^3.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

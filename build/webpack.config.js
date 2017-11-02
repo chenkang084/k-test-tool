@@ -9,12 +9,20 @@ const webpack = require("webpack"),
 
 module.exports = {
   devtool: "inline-source-map",
+  resolveLoader: {
+    modules: [
+      // "D:\\Users\\git\\react\\notification\\node_modules\\.6.5.7@rc-tools\\node_modules",
+      // "D:\\Users\\git\\react\\notification\\node_modules"
+      path.resolve(rootPath, "./node_modules")
+    ],
+    moduleExtensions: ["-loader"]
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: ["babel-loader"],
-        exclude: [path.resolve(rootPath, "./node_modules/")]
+        use: ["babel-loader"]
+        // exclude: [path.resolve(rootPath, "./node_modules/")]
         // exclude:
         //   env === "dev" ? / / : /node_modules\/(?!(webpack-dev-server)\/).*/
       }
@@ -22,10 +30,6 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: "common" // Specify the common bundle's name.
-    // }),
-
     new webpack.DllReferencePlugin({
       context: rootPath,
       name: "vendor",
