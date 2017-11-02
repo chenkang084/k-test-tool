@@ -1,11 +1,14 @@
 {
   "name": "k-test-tool",
-  "version": "1.0.1",
-  "description": "kang's ui test tool",
-  "main": "index.js",
+  "version": "1.0.5",
+  "description": "Kang's ui test tool",
+  "bin": {
+    "k-test-tool": "./bin/k-test-tool"
+  },
   "scripts": {
-    "test": "karma start ./karma.conf.js",
-    "dll": "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
+    "test": "karma start ./build/karma.conf.js",
+    "dll":
+      "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
   },
   "author": "chenkang084@163.com",
   "license": "ISC",
@@ -16,6 +19,8 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "~1.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.5",
     "phantomjs-prebuilt": "^2.1.4"
   },
   "devDependencies": {
@@ -27,10 +32,11 @@
     "babel-preset-stage-0": "^6.22.0",
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.2.0",
+    "cross-spawn": "^5.1.0",
     "expect": "^1.13.0",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.5",
+
     "lodash": "^4.17.4",
+    "object-assign": "^4.1.1",
     "rc-notification": "^3.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -40,9 +46,7 @@
     "type": "git",
     "url": "git+https://github.com/chenkang084/k-test-tool.git"
   },
-  "keywords": [
-    "karma"
-  ],
+  "keywords": ["karma"],
   "bugs": {
     "url": "https://github.com/chenkang084/k-test-tool/issues"
   },
