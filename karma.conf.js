@@ -12,7 +12,7 @@ module.exports = function(config) {
     frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
-    files: ["src/**/*.spec.js"],
+    files: ["node_modules/babel-polyfill/dist/polyfill.js", "src/**/*.spec.js"],
 
     // list of files to exclude
     exclude: ["karma.conf.js"],
@@ -24,7 +24,7 @@ module.exports = function(config) {
     },
 
     webpack: {
-      // devtool: "module-source-map",
+      devtool: "module-source-map",
       module: {
         rules: [
           {

@@ -1,4 +1,11 @@
-module.exports = function reverse(name) {
+// module.exports = function reverse(name) {
+//   return name
+//     .split("")
+//     .reverse()
+//     .join("");
+// };
+
+export default function reverse(name) {
   return name
     .split("")
     .reverse()
