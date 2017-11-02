@@ -9,39 +9,21 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    // frameworks: ["jasmine"],
     frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
-    files: [
-      // "src/library/vendor.dll.js",
-      "node_modules/babel-polyfill/dist/polyfill.js",
-      "src/**/*.spec.js"
-    ],
-    // files: ["node_modules/babel-polyfill/dist/polyfill.js", "tests.webpack.js"],
+    files: ["node_modules/babel-polyfill/dist/polyfill.js", "tests.webpack.js"],
     // list of files to exclude
-    exclude: ["karma.conf.js"],
+    exclude: ["karma.conf.js", "src/library/*"],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "src/**/*.spec.js": ["webpack", "sourcemap"]
-      // "tests.webpack.js": ["webpack", "sourcemap"]
+      "tests.webpack.js": ["webpack", "sourcemap"]
     },
 
     webpack: webpackConfig,
-    // webpack: {
-    //   devtool: "inline-source-map",
-    //   module: {
-    //     rules: [
-    //       {
-    //         test: /\.js$/,
-    //         use: ["babel-loader"],
-    //         exclude: ["./node_modules/"]
-    //       }
-    //     ]
-    //   }
-    // },
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter

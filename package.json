@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start ./karma.conf.js",
-    "dll": "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
+    "dll":
+      "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
   },
   "author": "chenkang084@163.com",
   "license": "ISC",
@@ -40,9 +41,7 @@
     "type": "git",
     "url": "git+https://github.com/chenkang084/k-test-tool.git"
   },
-  "keywords": [
-    "karma"
-  ],
+  "keywords": ["karma"],
   "bugs": {
     "url": "https://github.com/chenkang084/k-test-tool/issues"
   },
