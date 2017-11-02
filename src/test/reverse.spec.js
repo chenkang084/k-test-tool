@@ -1,7 +1,7 @@
-import reverse from "./reverse";
 import React from "react";
 import ReactDOM from "react-dom";
 import TestUtils from "react-dom/test-utils";
+import reverse from "./reverse";
 // import expect from "expect.js";
 
 import Notification from "rc-notification";

@@ -12,19 +12,20 @@ module.exports = function(config) {
     frameworks: ["jasmine"],
 
     // list of files / patterns to load in the browser
-    files: ["node_modules/babel-polyfill/dist/polyfill.js", "src/**/*.spec.js"],
-
+    // files: ["node_modules/babel-polyfill/dist/polyfill.js", "src/**/*.spec.js"],
+    files: ["node_modules/babel-polyfill/dist/polyfill.js", "tests.webpack.js"],
     // list of files to exclude
     exclude: ["karma.conf.js"],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "src/**/*.js": ["webpack"]
+      // "src/**/*.spec.js": ["webpack", "sourcemap"]
+      "tests.webpack.js": ["webpack", "sourcemap"]
     },
 
     webpack: {
-      devtool: "module-source-map",
+      devtool: "inline-source-map",
       module: {
         rules: [
           {
