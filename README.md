@@ -4,6 +4,7 @@ An ui auto test framework based karma,jasmine.
 
 > setup:<br>
     npm install <br>
+    npm run dll <br>
     npm test <br>
 
 
