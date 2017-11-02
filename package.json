@@ -1,6 +1,6 @@
 {
   "name": "k-test-tool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Kang's ui test tool",
   "main": "index.js",
   "scripts": {
