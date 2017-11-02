@@ -1,10 +1,10 @@
 {
   "name": "k-test-tool",
   "version": "1.0.1",
-  "description": "kang's ui test tool",
+  "description": "Kang's ui test tool",
   "main": "index.js",
   "scripts": {
-    "test": "karma start ./karma.conf.js",
+    "test": "karma start ./build/karma.conf.js",
     "dll":
       "cd ./build && webpack --colors --profile --display-modules --config webpack.dll.config.js "
   },
