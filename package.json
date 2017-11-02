@@ -1,8 +1,10 @@
 {
   "name": "k-test-tool",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Kang's ui test tool",
-  "main": "index.js",
+  "bin": {
+    "k-test-tool": "./bin/k-test-tool"
+  },
   "scripts": {
     "test": "karma start ./build/karma.conf.js",
     "dll":
