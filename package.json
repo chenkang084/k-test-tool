@@ -1,6 +1,6 @@
 {
   "name": "k-test-tool",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Kang's ui test tool",
   "bin": {
     "k-test-tool": "./bin/k-test-tool"
@@ -21,9 +21,7 @@
     "karma-phantomjs-launcher": "~1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.5",
-    "phantomjs-prebuilt": "^2.1.4"
-  },
-  "devDependencies": {
+    "phantomjs-prebuilt": "^2.1.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.26.0",
@@ -41,6 +39,7 @@
     "react-dom": "^16.0.0",
     "webpack": "^3.8.1"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chenkang084/k-test-tool.git"
