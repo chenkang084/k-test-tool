@@ -1,6 +1,6 @@
 {
   "name": "k-test-tool",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Kang's ui test tool",
   "bin": {
     "k-test-tool": "./bin/k-test-tool"

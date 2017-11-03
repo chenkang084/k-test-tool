@@ -1,19 +1,14 @@
 // Karma configuration
 
-const root = process.cwd(), //node excuate path
-  fs = require("fs"),
-  chalk = require("chalk"),
+const chalk = require("chalk"),
   path = require("path"),
   rootPath = path.resolve(__dirname, "../"),
-  userKarmaConfigPath = path.resolve(root, "./karma.conf.js");
-// console.log(userKarmaConfigPath);
-let userKarmaConfig;
-if (fs.existsSync(userKarmaConfigPath)) {
-  userKarmaConfig = require(userKarmaConfigPath);
-}
+  webpackConfig = require("./webpack.config"),
+  cwdPath = require("../utils/cwdPath");
 
+const userKarmaConfig = require("./getUserConfig");
 
-const webpackConfig = require("./webpack.config.js");
+console.log(userKarmaConfig, "++++++++++++++++++");
 
 module.exports = function(config) {
   config.set({
@@ -22,50 +17,19 @@ module.exports = function(config) {
 
     frameworks: ["jasmine"],
 
-    files: ["../node_modules/babel-polyfill/dist/polyfill.js"].concat(
-      // path.resolve(root, "./tests.webpack.js")
-      "../../../src/**/*.spec.js"
-      // "../src/**/*.js"
-    ), // list of files to exclude
+    files: [
+      path.resolve(rootPath, "./node_modules/babel-polyfill/dist/polyfill.js")
+    ].concat(userKarmaConfig.files), // list of files to exclude
     exclude: ["karma.conf.js"].concat(userKarmaConfig.exclude),
 
     preprocessors: {
-      // "../src/**/*.js"
-      ["../../../src/**/*.spec.js"]: ["webpack", "sourcemap"]
+      [userKarmaConfig.preprocessors]: ["webpack", "sourcemap"]
     },
-    // webpack: webpackConfig,
-    webpack: {
-      devtool: "inline-source-map",
-      resolveLoader: {
-        modules: [path.resolve(rootPath, "./node_modules")],
-        moduleExtensions: ["-loader"]
-      },
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            use: {
-              loader: "babel-loader",
-              query: {
-                presets: [
-                  require.resolve(`babel-preset-es2015`),
-                  require.resolve(`babel-preset-stage-0`),
-                  require.resolve(`babel-preset-react`)
-                ]
-              }
-            },
-            exclude: [
-              path.resolve(rootPath, "./node_modules/"),
-              path.resolve("../../../test-tool/node_modules")
-            ]
-          }
-        ]
-      }
-    },
+    webpack: webpackConfig,
 
     reporters: ["progress"],
     // web server port
-    port: 9876,
+    port: userKarmaConfig.port,
     // enable / disable colors in the output (reporters and logs)
     colors: true,
     // level of logging
@@ -75,10 +39,10 @@ module.exports = function(config) {
     autoWatch: true,
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["PhantomJS"],
+    browsers: userKarmaConfig.browsers,
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: userKarmaConfig.singleRun,
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,

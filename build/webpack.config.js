@@ -5,9 +5,10 @@ const webpack = require("webpack"),
   env = _.trim(process.env.NODE_ENV),
   path = require("path"),
   CopyWebpackPlugin = require("copy-webpack-plugin"),
+  cwdPath = require("../utils/cwdPath"),
   rootPath = path.resolve(__dirname, "../");
 
-console.log(path.resolve(rootPath, "./node_modules"));
+// console.log(path.resolve(rootPath, "./node_modules"));
 
 module.exports = {
   devtool: "inline-source-map",
@@ -19,8 +20,20 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ["babel-loader"],
-        exclude: [path.resolve(rootPath, "./node_modules/")]
+        use: {
+          loader: "babel-loader",
+          query: {
+            presets: [
+              require.resolve(`babel-preset-es2015`),
+              require.resolve(`babel-preset-stage-0`),
+              require.resolve(`babel-preset-react`)
+            ]
+          }
+        },
+        exclude: [
+          path.resolve(rootPath, "./node_modules/"),
+          path.resolve(cwdPath("node_modules"))
+        ]
       }
     ]
   },
