@@ -7,24 +7,20 @@ const webpack = require("webpack"),
   CopyWebpackPlugin = require("copy-webpack-plugin"),
   rootPath = path.resolve(__dirname, "../");
 
+console.log(path.resolve(rootPath, "./node_modules"));
+
 module.exports = {
   devtool: "inline-source-map",
-  resolveLoader: {
-    modules: [
-      // "D:\\Users\\git\\react\\notification\\node_modules\\.6.5.7@rc-tools\\node_modules",
-      // "D:\\Users\\git\\react\\notification\\node_modules"
-      path.resolve(rootPath, "./node_modules")
-    ],
-    moduleExtensions: ["-loader"]
-  },
+  // resolveLoader: {
+  //   modules: [path.resolve(rootPath, "./node_modules")],
+  //   moduleExtensions: ["-loader"]
+  // },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: ["babel-loader"]
-        // exclude: [path.resolve(rootPath, "./node_modules/")]
-        // exclude:
-        //   env === "dev" ? / / : /node_modules\/(?!(webpack-dev-server)\/).*/
+        use: ["babel-loader"],
+        exclude: [path.resolve(rootPath, "./node_modules/")]
       }
     ]
   },

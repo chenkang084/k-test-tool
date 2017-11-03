@@ -34,7 +34,6 @@
     "copy-webpack-plugin": "^4.2.0",
     "cross-spawn": "^5.1.0",
     "expect": "^1.13.0",
-
     "lodash": "^4.17.4",
     "object-assign": "^4.1.1",
     "rc-notification": "^3.0.0",

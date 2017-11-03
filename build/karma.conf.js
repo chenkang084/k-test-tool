@@ -1,11 +1,19 @@
 // Karma configuration
 
-const // root = process.cwd(), //node excuate path
+const root = process.cwd(), //node excuate path
   fs = require("fs"),
   chalk = require("chalk"),
-  path = require("path");
+  path = require("path"),
+  userKarmaConfigPath = path.resolve(root, "./karma.conf.js");
+// console.log(userKarmaConfigPath);
+let userKarmaConfig;
+if (fs.existsSync(userKarmaConfigPath)) {
+  userKarmaConfig = require(userKarmaConfigPath);
+}
 
-const webpackConfig = require(path.resolve(__dirname, "./webpack.config.js"));
+// console.log(userKarmaConfig);
+
+const webpackConfig = require("./webpack.config.js");
 
 module.exports = function(config) {
   config.set({
@@ -15,16 +23,19 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ["jasmine"],
     // list of files / patterns to load in the browser
-    files: [
-      "../node_modules/babel-polyfill/dist/polyfill.js",
-      "../tests.webpack.js"
-      // path.resolve(__dirname, "../tests.webpack.js")
-    ], // list of files to exclude
-    exclude: ["karma.conf.js", "../src/library/*"],
+    files: ["../node_modules/babel-polyfill/dist/polyfill.js"].concat(
+      // path.resolve(root, "./tests.webpack.js")
+      // "../../../src/**/*.spec.js"
+      "../src/**/*.js"
+    ), // list of files to exclude
+    exclude: ["karma.conf.js"].concat(userKarmaConfig.exclude),
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "../tests.webpack.js": ["webpack", "sourcemap"]
+      [
+        // "../../../src/**/*.spec.js",
+        "../src/**/*.js"
+      ]: ["webpack", "sourcemap"]
     },
     webpack: webpackConfig,
     // test results reporter to use
