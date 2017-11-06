@@ -8,7 +8,7 @@ const webpack = require("webpack"),
   cwdPath = require("../utils/cwdPath"),
   rootPath = path.resolve(__dirname, "../");
 
-// console.log(path.resolve(rootPath, "./node_modules"));
+console.log(require.resolve(`babel-preset-es2015`),"===========");
 
 module.exports = {
   devtool: "inline-source-map",

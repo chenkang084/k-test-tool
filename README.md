@@ -13,4 +13,4 @@ An ui auto test framework based karma,jasmine.
 
 - 如果使用**"react-dom": "^16.0.0"**，需要引入**babel-polyfill**
 
-
+- 在使用webpack的时候，需要通过require.resolve指定babel query的路径

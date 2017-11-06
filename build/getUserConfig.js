@@ -9,7 +9,7 @@ try {
   if (fs.existsSync(userKarmaConfigPath)) {
     console.log(
       chalk.green(
-        `write user defines karma config file in: ${userKarmaConfigPath}`
+        `read user defines karma config file in: ${userKarmaConfigPath}`
       )
     );
     userKarmaConfig = require(userKarmaConfigPath);
